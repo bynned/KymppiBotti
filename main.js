@@ -1,5 +1,11 @@
-const { Client, IntentsBitField } = require('discord.js');
+const { Client, IntentsBitField, Collection } = require('discord.js');
 require('dotenv').config();
+const {REST} = require("@discordjs/rest");
+const { Routes } = require("discord-api-types/v9");
+const { Player } = require("discord-player");
+
+const fs = require("fs");
+const path = require("path");
 
 const client = new Client({
     intents: [
@@ -7,6 +13,7 @@ const client = new Client({
         IntentsBitField.Flags.GuildMembers,
         IntentsBitField.Flags.GuildMessages,
         IntentsBitField.Flags.MessageContent,
+        IntentsBitField.Flags.GuildVoiceStates,
     ],
 });
 
