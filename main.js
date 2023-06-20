@@ -42,4 +42,12 @@ for (const file of commandFiles) {
     commands.push(command);
 }
 
+client.player = new Player(client, {
+    ytdlOptions: {
+        quality: "highestaudio",
+        highWaterMark: 1 << 25
+    }
+});
+
+
 client.login(process.env.BOT_TOKEN);
